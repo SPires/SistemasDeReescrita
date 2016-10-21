@@ -1,0 +1,35 @@
+mod AlgCompX is
+
+
+
+protecting NAT .
+
+
+
+sorts Set Term .
+
+subsorts Set < Term .
+
+
+
+op Unv : -> Set .
+
+op Emp : -> Set .
+
+op c : Nat -> Set .
+
+op not : Term -> Term .
+
+
+
+var X : Nat .
+
+rl [double] : not(not(c(X))) => c(X) .
+
+
+
+rl [univer] : not(Unv) => Emp .
+
+rl [empty] : not(Emp) => Unv .
+
+endm
