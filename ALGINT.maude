@@ -1,0 +1,38 @@
+mod AlgInt is
+
+protecting NAT .
+
+sorts Set Term .
+subsorts Set < Term .
+
+op c : Nat -> Set .
+op _cap_ : Term Term -> Term .
+
+vars X, Y : Nat .
+var T : Term .
+
+crl [assoc1] : c(X) cap (c(Y) cap T) => (c(X) cap c(Y)) cap T
+if X > Y .
+
+crl [assoc2] : (c(X) cap c(Y)) cap T => c(X) cap (c(Y) cap T)
+if X < Y .
+
+crl [assoc3] : c(X) cap (c(Y) cap T) => (c(X) cap c(Y)) cap T
+if X = Y .
+
+crl [assoc4] : T cap (c(X) cap (c(Y) cap T)) => T cap ((c(X) cap c(Y)) cap T)
+if X > Y .
+
+crl [assoc5] : T cap ((c(X) cap c(Y)) cap T) => T cap (c(X) cap (c(Y) cap T))
+if X < Y .
+
+crl [assoc6] : T cap (c(X) cap (c(Y) cap T)) => T cap ((c(X) cap c(Y)) cap T)
+if X = Y .
+
+crl [comut] : c(Y) cap c(X) => c(X) cap c(Y)
+if Y > X .
+
+crl [idem] : c(X) cap c(Y) => c(X)
+if X = Y .
+
+endm
