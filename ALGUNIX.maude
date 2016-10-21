@@ -1,68 +1,35 @@
 mod AlgUniX is
 
-
-
 protecting NAT .
 
-
-
 sorts Set Term .
-
 subsorts Set < Term .
 
-
-
 op Unv : -> Set .
-
 op Emp : -> Set .
-
 op c : Nat -> Set .
-
 op _cup_ : Term Term -> Term .
 
-
-
 vars X, Y : Nat .
-
 var T : Term .
 
-
-
 crl [assoc1] : c(X) cup (c(Y) cup T) => (c(X) cup c(Y)) cup T
-
 if X > Y .
 
-
-
 crl [assoc2] : (c(X) cup c(Y)) cup T => c(X) cup (c(Y) cup T)
-
 if X < Y .
 
-
-
 crl [comut] : c(Y) cup c(X) => c(X) cup c(Y)
-
 if Y > X .
 
-
-
 crl [idem] : c(X) cup c(Y) => c(X)
-
 if X = Y .
-
-
 
 rl [univ1] : T cup Unv => Unv .
 
-
-
 rl [univ2] : Unv cup T => Unv .
 
-
-
 rl [empty1] : T cup Emp => T .
-
-
 
 rl [empty2] : Emp cup T => T .
 
