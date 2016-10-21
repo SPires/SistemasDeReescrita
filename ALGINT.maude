@@ -20,15 +20,6 @@ if X < Y .
 crl [assoc3] : c(X) cap (c(Y) cap T) => (c(X) cap c(Y)) cap T
 if X = Y .
 
-crl [assoc4] : T cap (c(X) cap (c(Y) cap T)) => T cap ((c(X) cap c(Y)) cap T)
-if X > Y .
-
-crl [assoc5] : T cap ((c(X) cap c(Y)) cap T) => T cap (c(X) cap (c(Y) cap T))
-if X < Y .
-
-crl [assoc6] : T cap (c(X) cap (c(Y) cap T)) => T cap ((c(X) cap c(Y)) cap T)
-if X = Y .
-
 crl [comut] : c(Y) cap c(X) => c(X) cap c(Y)
 if Y > X .
 
