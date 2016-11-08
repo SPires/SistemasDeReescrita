@@ -1,0 +1,36 @@
+mod AlgIntMX is
+
+protecting NAT .
+
+sorts Set Term .
+subsort Set < Term .
+
+op EMP : -> Set .
+op UNV : -> Set .
+op c : Nat -> Set .
+op _cap_ : Term Term -> Term .
+
+vars X, Y : Nat .
+vars T, U, V : Term .
+
+rl [assoc] : (T cap U) cap V => T cap (U cap V) .
+
+crl [comut1] : c(Y) cap (c(X) cap T) => c(X) cap (c(Y) cap T)
+if X < Y .
+
+crl [comut2] : c(Y) cap c(X) => c(X) cap c(Y)
+if X < Y .
+
+rl [idem1] : c(X) cap (c(X) cap T) => c(X) cap T .
+
+rl [idem2] : c(X) cap c(X) => c(X) .
+
+rl [empt1] : EMP cap T => EMP .
+
+rl [empt2] : T cap EMP => EMP .
+
+rl [univ1] : UNV cap T => T .
+
+rl [univ2] : T cap UNV => T .
+
+endm
