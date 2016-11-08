@@ -11,7 +11,7 @@ op c : Nat -> Set .
 op _cap_ : Term Term -> Term .
 
 vars X, Y : Nat .
-var T : Term .
+vars T, U : Term .
 
 crl [assoc1] : c(X) cap (c(Y) cap T) => (c(X) cap c(Y)) cap T
 if X > Y .
@@ -20,6 +20,15 @@ crl [assoc2] : (c(X) cap c(Y)) cap T => c(X) cap (c(Y) cap T)
 if X < Y .
 
 crl [assoc3] : c(X) cap (c(Y) cap T) => (c(X) cap c(Y)) cap T
+if X = Y .
+
+crl [assoc4] : (c(X) cap (c(Y) cap T)) cap U => c(X) cap ((c(Y) cap T) cap U)
+if X < Y .
+
+crl [assoc5] : c(X) cap ((c(Y) cap T)) cap U) => (c(X) cap (c(Y) cap T)) cap U
+if X < Y .
+
+crl [assoc6] : (c(X) cap (c(Y) cap T)) cap U => c(X) cap ((c(Y) cap T) cap U)
 if X = Y .
 
 crl [comut] : c(Y) cap c(X) => c(X) cap c(Y)
