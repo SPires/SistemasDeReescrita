@@ -11,38 +11,26 @@ op c : Nat -> Set .
 op _cap_ : Term Term -> Term .
 
 vars X, Y : Nat .
-vars T, U : Term .
+vars T, U, V : Term .
 
-crl [assoc1] : c(X) cap (c(Y) cap T) => (c(X) cap c(Y)) cap T
-if X > Y .
+rl [assoc] : (T cap U) cap V => T cap (U cap V) .
 
-crl [assoc2] : (c(X) cap c(Y)) cap T => c(X) cap (c(Y) cap T)
-if X < Y .
-
-crl [assoc3] : c(X) cap (c(Y) cap T) => (c(X) cap c(Y)) cap T
-if X = Y .
-
-crl [assoc4] : (c(X) cap (c(Y) cap T)) cap U => c(X) cap ((c(Y) cap T) cap U)
-if X < Y .
-
-crl [assoc5] : c(X) cap ((c(Y) cap T)) cap U) => (c(X) cap (c(Y) cap T)) cap U
-if X < Y .
-
-crl [assoc6] : (c(X) cap (c(Y) cap T)) cap U => c(X) cap ((c(Y) cap T) cap U)
-if X = Y .
+crl [comutA] : c(Y) cap (c(X) cap T) => c(X) cap (c(Y) cap T)
+if X<Y .
 
 crl [comut] : c(Y) cap c(X) => c(X) cap c(Y)
-if Y > X .
+if X<Y .
 
-crl [idem] : c(X) cap c(Y) => c(X)
-if X = Y .
+rl [idemA] : c(X) cap (c(X) cap T) => c(X) cap T .
 
-rl [univ1] : UNV cap T => T .
+rl [idem] : c(X) cap c(X) => c(X) .
 
-rl [univ2] : T cap UNV => T .
+rl [univD] : T cap UNV => T .
 
-rl [empt1] : EMP cap T => EMP .
+rl [univE] : UNV cap T => T .
 
-rl [empt2] : T cap EMP => EMP .
+rl [emptD] : T cap EMP => EMP .
+
+rl [emptE] : EMP cap T => EMP .
 
 endm
