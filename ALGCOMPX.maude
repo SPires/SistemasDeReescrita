@@ -8,14 +8,14 @@ subsorts Set < Term .
 op Unv : -> Set .
 op Emp : -> Set .
 op c : Nat -> Set .
-op not : Term -> Term .
+op comp : Term -> Term .
 
 var X : Nat .
 
-rl [double] : not(not(c(X))) => c(X) .
+rl [duplo] : comp(comp(c(X))) => c(X) .
 
-rl [univer] : not(Unv) => Emp .
+rl [univ] : comp(Unv) => Emp .
 
-rl [empty] : not(Emp) => Unv .
+rl [empt] : comp(Emp) => Unv .
 
 endm
